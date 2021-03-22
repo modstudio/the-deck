@@ -1,0 +1,111 @@
+/*--- Typography ---*/
+body{
+  @include fsz(12px);
+  color: $color-white;
+  line-height: 1;
+  font-family: $main-font;
+}
+
+h1{
+  font-size: clamp(100px, 18vh, 180px);
+  font-weight: $weight-black;
+  line-height: 1.21;
+  @include respond-to(sm){
+    @include fsz(60px);
+  }
+}
+
+h2{
+  font-family: $heading-font;
+  font-weight: $weight-bold;
+  font-size: clamp(48px, 8vh, 80px);
+  line-height: 1.27;
+  @include respond-to(sm){
+    @include fsz(32px);
+  }
+}
+
+h3{
+  font-family: $heading-font;
+  font-weight: $weight-bold;
+  @include fsz(48px);
+  line-height: 1.27;
+  @include respond-to(sm){
+    @include fsz(28px);
+  }
+}
+h4{
+  font-family: $heading-font;
+  font-weight: $weight-bold;
+  @include fsz(24px);
+  line-height: 1.27;
+  @include respond-to(md){
+    @include fsz(20px);
+  }
+}
+
+.subheading{
+  font-family: $heading-font;
+  font-weight: $weight-semibold;
+  font-size: clamp(16px, 2.4vh, 32px);;
+  line-height: 1.27;
+  color: $color-teal;
+}
+
+.text-center{
+  text-align: center !important;
+}
+
+ul.list{
+  &--rated{
+    li {
+      padding-left: 16px;
+      &:before, .icon{
+        content: '';
+        font-family: $icon-font;
+        position: absolute;
+        left: -8px;
+        top: 6px;
+        line-height: 1;
+        @include fsz(16px);
+      }
+      &.low{
+        &:before{
+          content: "\ea12";
+        }
+      }
+      &.medium{
+        &:before{
+          content: "\ea11";
+        }
+      }
+      &.high{
+        &:before{
+          content: "\ea0e";
+        }
+      }
+    }
+  }
+  &--teal{
+    li{
+      &:before, .icon{
+        color: $color-teal;
+      }
+    }
+  }
+  &--aqua{
+    li{
+      &:before, .icon{
+        color: $color-aqua;
+      }
+    }
+  }
+  li{
+    font-weight: $weight-medium;
+    line-height: 2.5;
+    position: relative;
+  }
+  + ul{
+    margin-top: 30px;
+  }
+}

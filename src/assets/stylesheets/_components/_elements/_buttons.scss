@@ -1,0 +1,35 @@
+.btn {
+  display: inline-flex;
+  font-family: $heading-font;
+  font-weight: $weight-semibold;
+  border-radius: 5px;
+  line-height: 1;
+  transition: 200ms;
+  position: relative;
+  padding: 20px 40px;
+  @include fsz(24px);
+  @include respond-to(sm){
+    @include fsz(18px);
+    padding: 16px 24px;
+  }
+  &--default{
+    background: rgba($color-white, 0.15);
+    color: $color-white;
+    &:hover{
+      background: rgba($color-white, 0.25);
+    }
+  }
+  &--move{
+    i{
+      position: absolute;
+      bottom: -8px;
+      transform: translateY(100%);
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      @include respond-to(sm){
+        @include fsz(16px);
+      }
+    }
+  }
+}

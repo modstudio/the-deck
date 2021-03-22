@@ -1,0 +1,31 @@
+.hero{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-inner{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 20px 20px 40px;
+  h2{
+    margin-top: clamp(2px, 0.5vh, 20px);
+    @include respond-to(sm){
+      margin-top: 24px;
+    }
+  }
+  .subheading{
+    max-width: clamp(480px, 62vh, 900px);
+    margin: 0 auto;
+  }
+  .btn{
+    margin-top: clamp(32px, 6vh, 96px);;
+  }
+}
+.hero-img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 40px auto;
+}

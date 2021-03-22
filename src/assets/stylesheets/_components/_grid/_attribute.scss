@@ -1,0 +1,57 @@
+// flex attribute function
+@mixin make-attribute($screen-name) {
+    @each $attribute-name,$options-list in $flex-attribute-list {
+        .#{$attribute-name}-#{$screen-name} {
+            @each $option-name, $option-value in $options-list {
+                #{$option-name}:#{$option-value};
+            }
+        }
+    }
+}
+
+//make attribute (noscreen)
+@each $attribute-name, $options-list in $flex-attribute-list {
+    .#{$attribute-name} {
+        @each $option-name,
+        $option-value in $options-list {
+            #{$option-name}:#{$option-value};
+        }
+    }
+}
+
+//make attribute (screen-size)
+@each $screen-name,$screen-size in $grid-type-list {
+    @media (min-width: $screen-size + 1) {
+        @include make-attribute($screen-name);
+    }
+}
+
+
+// margin function
+@mixin make-margin($screen-name, $line:"-"){
+    @each $option-name, $option-value in $margin-type-list {
+        @for $i from 0 through 16 {
+            .#{$option-name}-#{$i*$grid-fraction}#{$line}#{$screen-name}{
+                @if( $option-name == "m" ){
+                    margin: #{$i * $grid-fraction / $grid-font-size + rem} !important;
+                }
+                @else{
+                    margin-#{$option-value}: #{$i * $grid-fraction / $grid-font-size + rem} !important;
+                }
+            }
+        }
+    }
+    @for $i from 1 through 16 {
+        .m-#{$i*$grid-fraction}#{$line}#{$screen-name} {
+            margin: #{$i * $grid-fraction / $grid-font-size + rem} !important;
+        }
+    }
+}
+@include make-margin($screen-name:null, $line:null);
+
+// margin, padding
+@each $screen-name,$screen-size in $grid-type-list {
+    @media (min-width: $screen-size + 1) {
+        @include make-margin($screen-name);
+    }
+}

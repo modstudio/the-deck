@@ -1,0 +1,126 @@
+body{
+  background: $color-black;
+}
+
+.container{
+  max-width: map-get($container-media-list, lg);
+  margin: 0 auto;
+  padding-left: $font-size * 1.25px;
+  padding-right: $font-size * 1.25px;
+  position: relative;
+}
+
+.row{
+  &.gutter-72{
+    @include respond-to(lg_up){
+      margin-left: -36px;
+      margin-right: -36px;
+      & > [class^="col"],
+      & > [class*=" col"] {
+        padding-right: 36px;
+        padding-left: 36px;
+      }
+    }
+  }
+}
+
+.skills {
+  padding: 20px 0 80px;
+}
+
+.skills-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 72px;
+  @include respond-to(md){
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 32px;
+    grid-column-gap: 32px;
+  }
+  @include respond-to(sm){
+    grid-template-columns: auto;
+  }
+}
+
+.software-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 32px;
+  @include respond-to(md){
+    grid-template-columns: auto;
+  }
+}
+
+.grid-full-width{
+  grid-column: 1 / span 3;
+  @include respond-to(md){
+    grid-column: auto;
+  }
+}
+
+.skills-inner-grid{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 24px;
+  @include respond-to(md){
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 1 / span 2;
+    grid-template-rows: auto;
+    grid-column-gap: 32px;
+  }
+  @include respond-to(sm){
+    grid-column: auto;
+    grid-template-columns: auto;
+  }
+}
+
+.skills-block {
+  background: rgba($color-white, 0.08);
+  border-radius: $border-radius-default;
+  box-shadow: $shadow-100;
+  padding: 16px 16px 24px;
+  &--pale{
+    h4, ul{
+      color: rgba($color-white, 0.7);
+    }
+  }
+  &--large{
+    padding: 32px;
+    @include respond-to(sm){
+      padding: 16px 16px 24px;
+    }
+  }
+  h4{
+    text-align: center;
+    padding: 12px 16px;
+    background: rgba($color-white, 0.1);
+    border-radius: $border-radius-default;
+  }
+	&__body {
+    padding: 16px 8px 0 24px;
+	}
+}
+
+.skill-keys{
+  padding: 24px 0;
+  background: inherit;
+  z-index: 2;
+  position: sticky;
+  top: 0;
+  @include respond-to(sm){
+    position: static;
+  }
+  .skills-block{
+    ul{
+      text-align: center;
+      @include respond-to(sm){
+        text-align: left;
+      }
+      li{
+        display: inline-block;
+        margin: 0 16px;
+      }
+    }
+  }
+}
