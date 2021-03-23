@@ -25,7 +25,20 @@ body{
 }
 
 .skills {
-  padding: 20px 0 80px;
+  padding: 28px 0 80px;
+  h3{
+    position: sticky;
+    z-index: 2;
+    top: 108px;
+    padding: 12px 0;
+    background: $color-black;
+    @include respond-to(sm){
+      top: 0;
+    }
+  }
+  &:last-of-type{
+    min-height: 90vh;
+  }
 }
 
 .skills-grid{
@@ -103,9 +116,9 @@ body{
 }
 
 .skill-keys{
-  padding: 24px 0;
+  padding: 12px 0 0;
   background: inherit;
-  z-index: 2;
+  z-index: 3;
   position: sticky;
   top: 0;
   @include respond-to(sm){

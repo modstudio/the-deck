@@ -31,7 +31,7 @@ h3{
   @include fsz(48px);
   line-height: 1.27;
   @include respond-to(sm){
-    @include fsz(28px);
+    @include fsz(24px);
   }
 }
 h4{
