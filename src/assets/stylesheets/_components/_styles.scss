@@ -33,11 +33,9 @@ body{
     padding: 12px 56px;
     background: $color-black;
     transition: 200ms;
-    @media (max-height: 600px) and (orientation: landscape), (max-width: 767px){
-      top: 0;
-      &.sticky-active{
-        top: 108px;
-      }
+    top: 0;
+    &.sticky-active{
+      top: 108px;
     }
     @include respond-to(md){
       top: 132px;
@@ -129,7 +127,6 @@ body{
 
 .skill-keys{
   padding: 12px 0 0;
-  background: inherit;
   z-index: 3;
   position: sticky;
   top: 0;
@@ -137,24 +134,26 @@ body{
   @include respond-to(sm){
     padding-bottom: 12px;
   }
-  &.sticky-small{
-    @media (max-height: 600px) and (orientation: landscape), (max-width: 767px){
-      background: none;
-      .skills-block{
-        transform: translateY(-110%);
-      }
-      .trigger-keys{
-        opacity: 1;
-        transform: none;
-        pointer-events: auto;
-      }
+  &.sticky{
+    .skills-block{
+      transform: translateY(-110%);
+    }
+    .trigger-keys{
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
     }
   }
   &.sticky-active{
-    @media (max-height: 600px) and (orientation: landscape), (max-width: 767px){
-      background: inherit;
-      .skills-block{
-        transform: none;
+    .skills-block{
+      transform: none;
+    }
+  }
+  &.sticky-active.sticky{
+    .skills-block{
+      &:after{
+        background: rgba($color-white, 0.12);
+        box-shadow: inset 0 0 2000px rgba($color-teal, 0.08);
       }
     }
   }
@@ -166,13 +165,13 @@ body{
     pointer-events: none;
     transform: translateY(200%);
     transition: 200ms;
-    z-index: 2;
+    z-index: 3;
     &:before{
-      content: "\ea12";
+      content: "\ea14";
       font-family: $icon-font;
     }
     &:after{
-      content: "\ea0e";
+      content: "\ea13";
       font-family: $icon-font;
       transform: translate(-50%, -50%) scale(0);
       position: absolute;
@@ -187,6 +186,30 @@ body{
     }
   }
   .skills-block{
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -12px;
+      width: 100%;
+      height: calc(100% + 24px);
+      background: $color-black;
+      transition: inherit;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($color-white, 0.08);
+      transition: inherit;
+      border-radius: $border-radius-default;
+    }
     @include respond-to(sm){
       padding-left: 12px;
       padding-right: 40px;
@@ -194,6 +217,8 @@ body{
     }
     ul{
       text-align: center;
+      position: relative;
+      z-index: 2;
       @include respond-to(md){
         display: flex;
         flex-direction: column;

@@ -3,11 +3,11 @@ let keysBtn = document.querySelector('.trigger-keys');
 let heading = document.querySelectorAll('.skills h3');
 
 window.addEventListener('scroll', function() {
-  if(keysBlock.offsetTop - window.scrollY <= 0){
-    keysBlock.classList.add('sticky-small');
+  if(keysBlock.offsetTop - window.scrollY < 1){
+    keysBlock.classList.add('sticky');
   }
   else{
-    keysBlock.classList.remove('sticky-small');
+    keysBlock.classList.remove('sticky');
   }
 })
 
