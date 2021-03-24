@@ -89,15 +89,15 @@ gulp.task('sass:build', (done) => {
 //   done();
 // });
 
-// gulp.task('javascript:build', (done) => {
-//   gulp.src(path.src.javascript)
-//   .pipe(uglify())
-//   .pipe(gulp.dest(path.build.javascript))
-//   .pipe(browserSync.reload({
-//     stream: true
-//   }));
-//   done();
-// });
+gulp.task('javascript:build', (done) => {
+  gulp.src(path.src.javascript)
+  .pipe(uglify())
+  .pipe(gulp.dest(path.build.javascript))
+  .pipe(browserSync.reload({
+    stream: true
+  }));
+  done();
+});
 
 // FONTS
 gulp.task('fonts:build', (done) => {
@@ -173,6 +173,7 @@ gulp.task('build', gulp.series(
   'img:build',
   'fonts:build',
   'favicon:build',
+  'javascript:build'
 ), function(done) {
     done();
 });
@@ -180,6 +181,7 @@ gulp.task('build', gulp.series(
 
 gulp.task('watch', () => {
   watch(path.watch.html, gulp.series('html:build'));
+  watch(path.watch.javascript, gulp.series('javascript:build'));
   watch(path.watch.stylesheets, gulp.series('sass:build'));
   watch(path.watch.img, gulp.series('img:build'));
   watch(path.watch.fonts, gulp.series('fonts:build'));

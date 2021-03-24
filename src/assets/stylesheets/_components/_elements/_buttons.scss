@@ -33,3 +33,13 @@
     }
   }
 }
+
+.btn-icon{
+  padding: 8px;
+  border-radius: $border-radius-default;
+  @include fsz(16px);
+  color: $color-teal;
+  background: rgba($color-white, 0.1);
+  line-height: 1;
+  display: inline-flex;
+}

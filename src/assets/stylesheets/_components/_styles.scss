@@ -30,8 +30,18 @@ body{
     position: sticky;
     z-index: 2;
     top: 108px;
-    padding: 12px 0;
+    padding: 12px 56px;
     background: $color-black;
+    transition: 200ms;
+    @media (max-height: 600px) and (orientation: landscape), (max-width: 767px){
+      top: 0;
+      &.sticky-active{
+        top: 108px;
+      }
+    }
+    @include respond-to(md){
+      top: 132px;
+    }
     @include respond-to(sm){
       top: 0;
     }
@@ -93,6 +103,8 @@ body{
   border-radius: $border-radius-default;
   box-shadow: $shadow-100;
   padding: 16px 16px 24px;
+  transition: 200ms;
+  overflow: hidden;
   &--pale{
     h4, ul{
       color: rgba($color-white, 0.7);
@@ -121,13 +133,74 @@ body{
   z-index: 3;
   position: sticky;
   top: 0;
+  transition: 200ms;
   @include respond-to(sm){
-    position: static;
+    padding-bottom: 12px;
+  }
+  &.sticky-small{
+    @media (max-height: 600px) and (orientation: landscape), (max-width: 767px){
+      background: none;
+      .skills-block{
+        transform: translateY(-110%);
+      }
+      .trigger-keys{
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+    }
+  }
+  &.sticky-active{
+    @media (max-height: 600px) and (orientation: landscape), (max-width: 767px){
+      background: inherit;
+      .skills-block{
+        transform: none;
+      }
+    }
+  }
+  .trigger-keys{
+    position: absolute;
+    right: 32px;
+    top: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(200%);
+    transition: 200ms;
+    z-index: 2;
+    &:before{
+      content: "\ea12";
+      font-family: $icon-font;
+    }
+    &:after{
+      content: "\ea0e";
+      font-family: $icon-font;
+      transform: translate(-50%, -50%) scale(0);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transition: 200ms;
+    }
+    &.sticky-active{
+      &:after{
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
   }
   .skills-block{
+    @include respond-to(sm){
+      padding-left: 12px;
+      padding-right: 40px;
+      padding-top: 14px;
+    }
     ul{
       text-align: center;
+      @include respond-to(md){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       @include respond-to(sm){
+        align-items: flex-start;
         text-align: left;
       }
       li{
@@ -136,4 +209,8 @@ body{
       }
     }
   }
+}
+
+#skills{
+  height: 1px;
 }
