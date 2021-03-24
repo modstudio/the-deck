@@ -30,7 +30,7 @@ body{
     position: sticky;
     z-index: 2;
     top: 108px;
-    padding: 12px 56px;
+    padding: 8px 56px;
     background: $color-black;
     transition: 200ms;
     top: 0;
@@ -45,7 +45,7 @@ body{
     }
   }
   &:last-of-type{
-    min-height: 90vh;
+    min-height: calc(100vh + 28px);
   }
 }
 
@@ -167,11 +167,11 @@ body{
     transition: 200ms;
     z-index: 3;
     &:before{
-      content: "\ea14";
+      content: "\ea16";
       font-family: $icon-font;
     }
     &:after{
-      content: "\ea13";
+      content: "\ea15";
       font-family: $icon-font;
       transform: translate(-50%, -50%) scale(0);
       position: absolute;
