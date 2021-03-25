@@ -68,6 +68,7 @@ ul.list{
         top: 6px;
         line-height: 1;
         @include fsz(16px);
+        transition: 200ms;
       }
       &.low{
         &:before{

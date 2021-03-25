@@ -1,6 +1,7 @@
 let keysBlock = document.querySelector('.skill-keys');
 let keysBtn = document.querySelector('.trigger-keys');
 let heading = document.querySelectorAll('.skills h3');
+let softwareBlock = document.querySelector('#software');
 
 window.addEventListener('scroll', function() {
   if(keysBlock.offsetTop - window.scrollY < 1){
@@ -8,6 +9,13 @@ window.addEventListener('scroll', function() {
   }
   else{
     keysBlock.classList.remove('sticky');
+  }
+
+  if(softwareBlock.offsetTop - window.scrollY < 100){
+    keysBlock.classList.add('color-change');
+  }
+  else{
+    keysBlock.classList.remove('color-change');
   }
 })
 

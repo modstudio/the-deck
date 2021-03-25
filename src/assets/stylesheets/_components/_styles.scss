@@ -36,9 +36,9 @@ body{
     top: 0;
     &.sticky-active{
       top: 108px;
-    }
-    @include respond-to(md){
-      top: 132px;
+      @include respond-to(md){
+        top: 140px;
+      }
     }
     @include respond-to(sm){
       top: 0;
@@ -156,6 +156,25 @@ body{
         box-shadow: inset 0 0 2000px rgba($color-teal, 0.08);
       }
     }
+    &.color-change {
+      .skills-block{
+        &:after{
+          box-shadow: inset 0 0 2000px rgba($color-aqua, 0.08);
+        }
+      }
+    }
+  }
+  &.color-change{
+    .list--teal{
+      li{
+        &:before, .icon{
+          color: $color-aqua;
+        }
+      }
+    }
+    .btn-icon{
+      color: $color-aqua;
+    }
   }
   .trigger-keys{
     position: absolute;
@@ -166,6 +185,9 @@ body{
     transform: translateY(200%);
     transition: 200ms;
     z-index: 3;
+    @media (max-width: 767px) and (orientation:landscape){
+      top: -4px;
+    }
     &:before{
       content: "\ea16";
       font-family: $icon-font;
