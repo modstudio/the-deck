@@ -261,3 +261,12 @@ body{
 #skills{
   height: 1px;
 }
+
+.d-none{
+  display: none;
+}
+.d-md-grid{
+  @include respond-to(sm_up){
+    display: grid;
+  }
+}
