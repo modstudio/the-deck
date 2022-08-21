@@ -24,8 +24,31 @@
   }
 }
 .hero-img{
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
   margin: 40px auto;
+}
+
+.hero-img-wrap{
+  max-width: 120px;
+  margin: 40px auto;
+  filter: blur(0.2px);
+  transform: translate3d(0, 0, 0);
+}
+.hero-img-inner{
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(151.99deg, rgba(17, 212, 196, 0.017) 13.62%, rgba(17, 186, 212, 0.17) 83.75%);
+}
+.hero-img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  display: block;
+  mix-blend-mode: luminosity;
 }
